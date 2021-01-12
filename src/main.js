@@ -1,8 +1,10 @@
 import Vue from "vue";
-import "./registerServiceWorker";
 import FastClick from "fastclick";
-
 import App from "./App.vue";
+
+import Cloudbase from "@cloudbase/vue-provider";
+import config from "../cloudbaserc";
+
 import "./utils/constants.js";
 import router from "./router";
 import store from "./store";
@@ -31,6 +33,10 @@ Vue.use(Toast);
 Vue.use(VuePlyr, {
   plyr: {}
 })
+
+Vue.use(Cloudbase, {
+  env: process.env.VUE_APP_ENV_ID || config.envId,
+});
 
 router.beforeEach(function(to, from, next) {
   store.commit("updateLoadingStatus", { showLoading: true });

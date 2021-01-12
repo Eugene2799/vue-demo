@@ -39,11 +39,11 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/cwbase': {
-        target: 'http://10.24.18.12/',
+      '/api-path': {
+        target: 'http://target-ip/',
         ws: true,
         changeOrigin: true,
-        pathRewrite: { '^/cwbase': '/cwbase' }
+        pathRewrite: { '^/api-path': '/api-path' }
       }
     }
   },
